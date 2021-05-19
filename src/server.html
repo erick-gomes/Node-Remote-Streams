@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server TS</title>
+</head>
+
+<body>
+    <img id="image" />
+    <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+        integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const socket = io()
+        socket.on('image', image => {
+            const img = document.getElementById('image')
+            img.src = `data:image/png;base64,${image}`
+        })
+    </script>
+
+</body>
+
+</html>
